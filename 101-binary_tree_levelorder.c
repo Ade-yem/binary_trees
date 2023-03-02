@@ -11,19 +11,16 @@ int height(const binary_tree_t *node)
 	int lheight, rheight;
 
 	if (node == NULL)
-		return 0;
-	else
-	{
-		/* compute the height of each subtree */
-		lheight = height(node->left);
-		rheight = height(node->right);
+		return (0);
+	/* compute the height of each subtree */
+	lheight = height(node->left);
+	rheight = height(node->right);
 
-		/* use the larger one */
-		if (lheight > rheight)
-			return (lheight + 1);
-		else
-			return (rheight + 1);
-	}
+	/* use the larger one */
+	if (lheight > rheight)
+		return (lheight + 1);
+	else
+		return (rheight + 1);
 }
 
 /**
@@ -39,7 +36,8 @@ void printCurrentLevel(const binary_tree_t *root, int level, void (*func)(int))
 		return;
 	if (level == 1)
 		func(root->n);
-	else if (level > 1) {
+	else if (level > 1)
+	{
 		printCurrentLevel(root->left, level - 1, func);
 		printCurrentLevel(root->right, level - 1, func);
 	}
